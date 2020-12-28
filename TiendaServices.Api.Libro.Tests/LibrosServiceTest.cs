@@ -16,6 +16,7 @@ namespace TiendaServices.Api.Libro.Tests
     {
         private IEnumerable<LibroMaterial> GetFakeData()
         {
+            // This method fills data using Genfu nuget package
             A.Configure<LibroMaterial>()
                 .Fill(x => x.Titulo).AsArticleTitle()
                 .Fill(x => x.LibroMaterialId, () => { return Guid.NewGuid(); });
