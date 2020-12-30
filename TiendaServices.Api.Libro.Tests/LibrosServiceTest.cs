@@ -8,6 +8,8 @@ using System.Linq;
 using TiendaServices.Api.Libro.Application;
 using TiendaServices.Api.Libro.Models;
 using TiendaServices.Api.Libro.Persistence;
+using TiendaServices.RabbitMQ.Bus.EventQueue;
+using TiendaServices.RabbitMQ.Bus.RabbitBus;
 using Xunit;
 
 namespace TiendaServices.Api.Libro.Tests
@@ -96,6 +98,8 @@ namespace TiendaServices.Api.Libro.Tests
                 .Options;
 
             var context = new LibreriaContext(options);
+            var rabbitEventBus = new Mock<IRabbitEventBus>();
+            rabbitEventBus.Setup(x => x.Publish(new EmailEventQueue("test@test.com", "test title", "test content")));
 
             var request = new NewLibroCommand
             {
@@ -103,7 +107,7 @@ namespace TiendaServices.Api.Libro.Tests
                 AutorLibro = Guid.Empty,
                 FechaPublicacion = DateTime.Now
             };
-            var handler = new NewLibroCommandHandler(context);
+            var handler = new NewLibroCommandHandler(context, rabbitEventBus.Object);
 
             var result = await handler.Handle(request, new System.Threading.CancellationToken());
 
