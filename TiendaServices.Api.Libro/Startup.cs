@@ -15,6 +15,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using TiendaServices.Api.Libro.Application;
 using TiendaServices.Api.Libro.Persistence;
+using TiendaServices.RabbitMQ.Bus.Implement;
+using TiendaServices.RabbitMQ.Bus.RabbitBus;
 
 namespace TiendaServices.Api.Libro
 {
@@ -39,6 +41,7 @@ namespace TiendaServices.Api.Libro
 
             services.AddMediatR(typeof(NewLibroCommandHandler).Assembly);
             services.AddAutoMapper(typeof(GetLibroQuery));
+            services.AddTransient<IRabbitEventBus, RabbitEventBus>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

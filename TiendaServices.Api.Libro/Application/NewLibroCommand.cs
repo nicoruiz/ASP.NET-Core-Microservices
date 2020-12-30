@@ -6,6 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using TiendaServices.Api.Libro.Models;
 using TiendaServices.Api.Libro.Persistence;
+using TiendaServices.RabbitMQ.Bus.EventQueue;
+using TiendaServices.RabbitMQ.Bus.RabbitBus;
 
 namespace TiendaServices.Api.Libro.Application
 {
@@ -21,9 +23,12 @@ namespace TiendaServices.Api.Libro.Application
     public class NewLibroCommandHandler : IRequestHandler<NewLibroCommand>
     {
         private readonly LibreriaContext _context;
-        public NewLibroCommandHandler(LibreriaContext context)
+        private readonly IRabbitEventBus _rabbitEventBus;
+
+        public NewLibroCommandHandler(LibreriaContext context, IRabbitEventBus rabbitEventBus)
         {
             _context = context;
+            _rabbitEventBus = rabbitEventBus;
         }
 
         public async Task<Unit> Handle(NewLibroCommand request, CancellationToken cancellationToken)
@@ -38,8 +43,10 @@ namespace TiendaServices.Api.Libro.Application
             var entity = await _context.Libros.AddAsync(libro);
             var res = await _context.SaveChangesAsync();
 
+            _rabbitEventBus.Publish(new EmailEventQueue("nicoruiz182@gmail.com", request.Titulo, "Example content"));
+
             if (res > 0)
-            {
+            {                
                 return Unit.Value;
             }
 
