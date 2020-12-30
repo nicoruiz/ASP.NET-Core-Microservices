@@ -22,7 +22,7 @@ namespace TiendaServices.RabbitMQ.Bus.EventQueue
 
         public override void Handle()
         {
-            Console.WriteLine($" [x] Email sent to {Receiver}: {Title} - {Content}");
+            Console.WriteLine($"[RabbitMQ] {TimeStamp} - Email sent to {Receiver}: {Title} - {Content}");
         }
     }
 }
