@@ -5,11 +5,15 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServices.Api.Autor", "TiendaServices.Api.Autor\TiendaServices.Api.Autor.csproj", "{FBE1B9A9-0750-4F06-BAC5-636948779624}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServices.Api.Libro", "TiendaServices.Api.Libro\TiendaServices.Api.Libro.csproj", "{D1070C36-40D9-4CFC-BE0A-B10CA977A62A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServices.Api.Libro", "TiendaServices.Api.Libro\TiendaServices.Api.Libro.csproj", "{D1070C36-40D9-4CFC-BE0A-B10CA977A62A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServices.Api.CarritoCompra", "TiendaServices.Api.CarritoCompra\TiendaServices.Api.CarritoCompra.csproj", "{18120114-30B9-44D0-BE66-17548A36D7DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServices.Api.CarritoCompra", "TiendaServices.Api.CarritoCompra\TiendaServices.Api.CarritoCompra.csproj", "{18120114-30B9-44D0-BE66-17548A36D7DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServices.Api.Libro.Tests", "TiendaServices.Api.Libro.Tests\TiendaServices.Api.Libro.Tests.csproj", "{FFF6796B-32FE-4CFF-9E74-5DAEDCF021BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServices.Api.Libro.Tests", "TiendaServices.Api.Libro.Tests\TiendaServices.Api.Libro.Tests.csproj", "{FFF6796B-32FE-4CFF-9E74-5DAEDCF021BB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{94F6C665-4EA2-4CBE-AF3A-1E0EADEDCDBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServices.Api.Gateway", "TiendaServices.Api.Gateway\TiendaServices.Api.Gateway.csproj", "{6850D67E-EDC8-4EA0-A811-45035A59F333}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{FFF6796B-32FE-4CFF-9E74-5DAEDCF021BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFF6796B-32FE-4CFF-9E74-5DAEDCF021BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFF6796B-32FE-4CFF-9E74-5DAEDCF021BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F6C665-4EA2-4CBE-AF3A-1E0EADEDCDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F6C665-4EA2-4CBE-AF3A-1E0EADEDCDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F6C665-4EA2-4CBE-AF3A-1E0EADEDCDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F6C665-4EA2-4CBE-AF3A-1E0EADEDCDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6850D67E-EDC8-4EA0-A811-45035A59F333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6850D67E-EDC8-4EA0-A811-45035A59F333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6850D67E-EDC8-4EA0-A811-45035A59F333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6850D67E-EDC8-4EA0-A811-45035A59F333}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

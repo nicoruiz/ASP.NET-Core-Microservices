@@ -1,0 +1,90 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/libros",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservices.api.libro",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/libros",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "Key": "Libros"
+    },
+    {
+      "DownstreamPathTemplate": "/api/libros/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservices.api.libro",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/libros/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "DelegatingHandlers": [
+        "LibroHandler"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/autores",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservices.api.autor",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/autores",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "Key": "Autores"
+    },
+    {
+      "DownstreamPathTemplate": "/api/autores/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservices.api.autor",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/autores/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/carritos",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservices.api.carritocompra",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/carritos",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/carritos/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservices.api.carritocompra",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/carritos/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "Libros",
+        "Autores"
+      ],
+      "UpstreamPathTemplate": "/librosautores"
+    }
+  ]
+}
