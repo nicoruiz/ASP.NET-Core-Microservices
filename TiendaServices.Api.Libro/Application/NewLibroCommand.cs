@@ -43,6 +43,7 @@ namespace TiendaServices.Api.Libro.Application
             var entity = await _context.Libros.AddAsync(libro);
             var res = await _context.SaveChangesAsync();
 
+            // Publish RabbitMQ Event
             _rabbitEventBus.Publish(new EmailEventQueue("nicoruiz182@gmail.com", request.Titulo, "Example content"));
 
             if (res > 0)
