@@ -19,5 +19,10 @@ namespace TiendaServices.RabbitMQ.Bus.EventQueue
             Title = title;
             Content = content;
         }
+
+        public override void Handle()
+        {
+            Console.WriteLine($" [x] Email sent to {Receiver}: {Title} - {Content}");
+        }
     }
 }

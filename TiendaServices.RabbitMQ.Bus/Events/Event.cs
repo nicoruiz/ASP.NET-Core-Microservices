@@ -11,5 +11,10 @@ namespace TiendaServices.RabbitMQ.Bus.Events
         {
             TimeStamp = DateTime.Now;
         }
+
+        public virtual void Handle()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

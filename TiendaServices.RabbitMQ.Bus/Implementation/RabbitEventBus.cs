@@ -42,7 +42,9 @@ namespace TiendaServices.RabbitMQ.Bus.Implement
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine($" [x] Received {eventName} - {message}");
+
+                var deserializedEvemt = JsonConvert.DeserializeObject<T>(message);
+                deserializedEvemt.Handle();
             };
 
             channel.BasicConsume(eventName, true, consumer);
