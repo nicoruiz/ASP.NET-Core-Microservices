@@ -5,16 +5,16 @@ ASP.NET Core Microservices with Docker and RabbitMQ
 * TiendaServices.Api.Autor
 * TiendaServices.Api.Libro
 * TiendaServices.Api.CarritoCompra
-* TiendaServices.Api.Gateway(Ocelot)
+* TiendaServices.Api.Gateway (Ocelot)
 
 ## Tech Stack
 * ASP.NET Core C#
 * Entity Framework Core
-* CQRS Architecture
+* CQRS Architecture (MediatR)
 * Docker
 * RabbitMQ
 * Ocelot (Gateway API)
-* XUnit and Moq
+* XUnit, Moq, GenFu (to generate fake realistic data)
 * Fluent validation
 * Automapper
 * Azure DevOps Pipelines with CI
